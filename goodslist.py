@@ -11,7 +11,7 @@ print("""
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>客戶端購物車</title>
+<title>管理端</title>
 </head>
 <body>
 <a href='addgoodsform.html'> 新增商品 </a><hr>
