@@ -14,10 +14,11 @@ print("""
 <title>管理端</title>
 </head>
 <body>
-<a href='addgoodsform.html'> 新增商品 </a><hr>
+特殊動作 <a href='Customer.py'> 客戶端 </a><hr>
+<a href='addgoodsform.html'> 新增商品 </a> 
 <form method="post" action="delgoods.py">
-輸入要刪除的ID: <input type='text' name='i'><input type='submit'>
-</form> <br>
+輸入要刪除的ID: <input type='text' name='id'><input type='submit'>
+</form>
 <a href='changeGform.html'> 修改商品庫存 </a><hr>
 <hr>
 """)
