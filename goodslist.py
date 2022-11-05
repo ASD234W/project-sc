@@ -19,7 +19,10 @@ print("""
 <form method="post" action="delgoods.py">
 輸入要刪除的ID: <input type='text' name='id'><input type='submit'>
 </form>
-<a href='changeGform.html'> 修改商品庫存 </a><hr>
+<a href='changeGform.html'> 修改商品項目 </a><hr>
+<form method="post" action="addgoodsN.py">
+輸入要入庫的商品ID: <input type='text' name='id'> 數量: <input type='number' name='number'><input type='submit'>
+</form>
 <hr>
 """)
 msgList=sp.goodslist()
