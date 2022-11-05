@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-10-30 08:29:07
+-- 產生時間： 2022-11-05 06:54:25
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -36,6 +36,17 @@ CREATE TABLE `shoppingcart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- 傾印資料表的資料 `shoppingcart`
+--
+
+INSERT INTO `shoppingcart` (`Pid`, `Name`, `Description`, `Quantity`, `Price`) VALUES
+(1, '商品A', '某種商品', 15, 100),
+(2, '商品B', '另外一種商品', 26, 150),
+(3, '商品C', '其他的商品', 10, 250),
+(4, '商品D', 'another one', 3, 900),
+(5, '商品E', 'And another one', 100, 45);
+
+--
 -- 已傾印資料表的索引
 --
 
@@ -53,7 +64,7 @@ ALTER TABLE `shoppingcart`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `shoppingcart`
 --
 ALTER TABLE `shoppingcart`
-  MODIFY `Pid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
