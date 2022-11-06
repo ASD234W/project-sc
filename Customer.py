@@ -16,12 +16,14 @@ print("""
 </head>
 <body>
 特殊動作 <a href='goodslist.py'> 管理端 </a><hr>
-<form method="post" action="delMsg.py">
-輸入要刪除的號碼: <input type='text' name='i'><input type='submit'>
+<form method="post" action="addcart.py">
+加入購物車: <input type='text' name='id'>數量: <input type='number' name='number'><input type='submit'>
 </form> <br>
-<form method="post" action="likeMsg.py">
-輸入要按讚的號碼: <input type='text' name='i'><input type='submit'>
+<form method="post" action="delcart.py">
+移出購物車: <input type='text' name='id'>數量: <input type='number' name='number'><input type='submit'>
 </form>
+<a href='listcart.py'> 列出購物車內容</a> <br>
+<a href='Sfinish.py'> 結帳</a>
  <hr>
 """)
 msgList=sp.getList()
