@@ -7,7 +7,7 @@ def getList():
     return records
 
 def addcart(Pid,number):
-    sql="INSERT INTO customercart(Pid, Name, Description, Price) select Pid,Name,Description,Price from shoppingcart where Pid = %s;"
+    sql="INSERT INTO customercart(Pid, Name, Description, Price) select Pid,Name,Description,Price from shoppingcart where Pid = %s and Pid NOT IN (select Pid from customercart);"
     cur.execute(sql,(Pid,))
     conn.commit()
     
@@ -45,12 +45,11 @@ def SFinish():
     sql="select sum(Quantity*Price) as toal from customercart where Quantity>0;"
     cur.execute(sql)
     record = cur.fetchone()
-    return record
     
     sql="Truncate Table customercart;"
     cur.execute(sql)
     conn.commit()
-    return
+    return record
 
 def goodslist():
     sql="select Pid, Name,Description, Quantity,Price from shoppingcart;"
