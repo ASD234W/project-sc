@@ -22,6 +22,8 @@ number=form.getvalue('number')
 msgList=sp.listcart()
 if not msgList:
     print("目前尚未選購商品")
+elif Pid == None or number == None:
+    print("輸入格式錯誤")
 elif sp.delcart(Pid,number):
     print(f"編號{Pid}商品已移出購物車!")
 else:

@@ -19,7 +19,9 @@ print("""
 form = cgi.FieldStorage()
 Pid=form.getvalue('id')
 number=form.getvalue('number')
-if sp.addcart(Pid,number):
+if Pid == None or number == None:
+    print("輸入格式錯誤")
+elif sp.addcart(Pid,number):
     print(f"編號{Pid}商品已加入購物車!")
 else:
     print("加入購物車失敗!")
