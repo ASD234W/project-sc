@@ -40,7 +40,6 @@ def listcart():
     records = cur.fetchall()
     return records
 
-
 def SFinish():
     sql="select sum(Quantity*Price) as toal from customercart where Quantity>0;"
     cur.execute(sql)

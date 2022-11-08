@@ -16,7 +16,6 @@ print("""
 </head>
 <body>
 """)
-
 form = cgi.FieldStorage()
 Pid = form.getvalue('Pid')
 name = form.getvalue('name')

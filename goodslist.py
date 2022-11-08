@@ -24,6 +24,7 @@ print("""
 輸入要入庫的商品ID: <input type='text' name='id'> 數量: <input type='number' name='number'><input type='submit'>
 </form>
 <hr>
+<h2>商品清單</h2>
 """)
 msgList=sp.goodslist()
 for (Pid,Name,Description,Quantity,Price) in msgList:

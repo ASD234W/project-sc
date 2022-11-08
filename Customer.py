@@ -23,8 +23,9 @@ print("""
 移出購物車: <input type='text' name='id'>數量: <input type='number' name='number'><input type='submit'>
 </form>
 <a href='listcart.py'> 列出購物車內容</a> <br>
-<a href='Sfinish.py'> 結帳</a>
- <hr>
+<a href='finalcheck.py'> 結帳</a>
+<hr>
+<h2>商品列表</h2>
 """)
 msgList=sp.getList()
 for (Pid,Name,Description,Quantity,Price) in msgList:
