@@ -19,7 +19,10 @@ print("""
 form = cgi.FieldStorage()
 Pid=form.getvalue('id')
 number=form.getvalue('number')
-if sp.delcart(Pid,number):
+msgList=sp.listcart()
+if not msgList:
+    print("目前尚未選購商品")
+elif sp.delcart(Pid,number):
     print(f"編號{Pid}商品已移出購物車!")
 else:
     print("移出購物車失敗!")
