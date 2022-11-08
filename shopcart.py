@@ -56,6 +56,11 @@ def goodslist():
     records = cur.fetchall()
     return records
 
+def showgood(Pid):
+    sql="select Pid, Name,Description, Quantity,Price from shoppingcart where Pid=%s;"
+    cur.execute(sql,(Pid,))
+    records = cur.fetchall()
+    return records
 
 def addgoods(name,des,number,price):
     sql="insert into shoppingcart (Name,Description,Quantity,Price) values (%s,%s,%s,%s);"
