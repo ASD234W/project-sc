@@ -18,7 +18,9 @@ print("""
 """)
 form = cgi.FieldStorage()
 Pid=form.getvalue('id')
-if sp.delgoods(Pid):
+if Pid == None:
+    print("發生錯誤")
+elif sp.delgoods(Pid):
     print(f"編號{Pid}商品已刪除!")
 else:
     print("刪除商品失敗!")

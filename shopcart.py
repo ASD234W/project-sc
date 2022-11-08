@@ -33,7 +33,7 @@ def delcart(Pid, number):
     cur.execute(sql,(number,Pid))
     conn.commit()
     return True
-
+    
 def listcart():
     sql="select Pid, Name,Description, Quantity,Price from customercart where Quantity>0;"
     cur.execute(sql)

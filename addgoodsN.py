@@ -19,7 +19,9 @@ print("""
 form = cgi.FieldStorage()
 Pid=form.getvalue('id')
 number=form.getvalue('number')
-if sp.addgoodsN(Pid,number):
+if Pid is None or number is None:
+    print("錯誤的輸入")
+elif sp.addgoodsN(Pid,number):
     print(f"編號{Pid}商品庫存已修改!")
 else:
     print("修改庫存失敗!")

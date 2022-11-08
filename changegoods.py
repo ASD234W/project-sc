@@ -22,8 +22,9 @@ name = form.getvalue('name')
 des = form.getvalue('des')
 number = form.getvalue('number')
 price = form.getvalue('price')
-
-if sp.changegoods(Pid,name,des,number,price):
+if Pid == None or name == None or Price == None:
+    print("錯誤的輸入")
+elif sp.changegoods(Pid,name,des,number,price):
     print("修改商品成功!")
 else:
     print("修改商品失敗!")
