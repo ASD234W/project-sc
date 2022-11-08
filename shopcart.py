@@ -21,16 +21,16 @@ def addcart(Pid,number):
     return True
 
 def delcart(Pid, number):
-    sql="update customercart set Quantity =Quantity - %s where Pid = %s and Pid IN (select Pid from customercart);"
-    cur.execute(sql,(number,Pid))
+    sql="update shoppingcart set Quantity =Quantity + (select if(Quantity>%s,%s,Quantity) from customercart where Pid = %s) where Pid = %s and Pid IN (select Pid from customercart);"
+    cur.execute(sql,(number,number,Pid,Pid))
     conn.commit()
     
     sql="delete from customercart where Quantity <= 0;"
     cur.execute(sql)
     conn.commit()
     
-    sql="update shoppingcart set Quantity =Quantity + %s where Pid = %s and Pid IN (select Pid from customercart);"
-    cur.execute(sql,(number,Pid))
+    sql="update customercart set Quantity =Quantity - if(Quantity>%s,%s,Quantity) where Pid = %s and Pid IN (select Pid from customercart);"
+    cur.execute(sql,(number,number,Pid))
     conn.commit()
     return True
     
