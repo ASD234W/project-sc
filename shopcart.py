@@ -76,13 +76,13 @@ def delgoods(Pid):
     return True
 
 def changegoods(Pid,name,des,number,price):
-    sql="update shoppingcart set Name=%s, Description=%s, Quantity=%s, Price=%s where Pid=%s;"
+    sql="update shoppingcart set Name=%s, Description=%s, Quantity=%s, Price=%s where Pid=%s and Pid IN (select Pid from shoppingcart);"
     cur.execute(sql,(name,des,number,price,Pid))
     conn.commit()
     return True
 
 def addgoodsN(Pid,number):
-    sql="update shoppingcart set Quantity=Quantity+%s where Pid=%s;"
+    sql="update shoppingcart set Quantity=Quantity+%s where Pid=%s and Pid IN (select Pid from shoppingcart);"
     cur.execute(sql,(number,Pid))
     conn.commit()
     return True
