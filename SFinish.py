@@ -19,7 +19,10 @@ print("""
 msglist=sp.SFinish()
 if sp.SFinish():
     for (total) in msglist:
-        print(f"結帳成功，總共：{total}元")
+        if total != None:
+            print(f"結帳成功，總共：{total}元")
+        else:
+            print("購物車是空的，無法結帳")
 else:
     print("結帳失敗!")
 print("<br><a href='Customer.py'>回客戶端</a>")
