@@ -25,12 +25,12 @@ def delcart(Pid, number):
     cur.execute(sql,(number,number,Pid,Pid))
     conn.commit()
     
-    sql="delete from customercart where Quantity <= 0;"
-    cur.execute(sql)
-    conn.commit()
-    
     sql="update customercart set Quantity =Quantity - if(Quantity>%s,%s,Quantity) where Pid = %s and Pid IN (select Pid from customercart);"
     cur.execute(sql,(number,number,Pid))
+    conn.commit()
+    
+    sql="delete from customercart where Quantity <= 0;"
+    cur.execute(sql)
     conn.commit()
     return True
     
