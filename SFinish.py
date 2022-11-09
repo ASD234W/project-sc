@@ -17,10 +17,7 @@ print("""
 <body>
 """)
 msglist=sp.SFinish()
-msgList1=sp.listcart()
-if not msgList1:
-    print("購物車為空，無法結帳")
-elif sp.SFinish():
+if sp.SFinish():
     for (total) in msglist:
         print(f"結帳成功，總共：{total}元")
 else:
