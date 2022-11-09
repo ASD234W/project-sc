@@ -24,7 +24,7 @@ number = form.getvalue('number')
 price = form.getvalue('price')
 if Pid == None or name == None or price == None:
     print("錯誤的輸入")
-if sp.changegoods(Pid,name,des,number,price):
+elif sp.changegoods(Pid,name,des,number,price):
     print("修改商品成功!")
 else:
     print("修改商品失敗!")
