@@ -20,9 +20,13 @@ form = cgi.FieldStorage()
 Pid=form.getvalue('id')
 if Pid == None:
     print("發生錯誤")
-elif sp.delgoods(Pid):
-    print(f"編號{Pid}商品已刪除!")
 else:
-    print("刪除商品失敗!")
+    if sp.check(Pid):
+        if sp.delgoods(Pid):
+            print(f"編號{Pid}商品已刪除!")
+        else:
+            print("刪除商品失敗!")
+    else:
+        print("沒有這個商品")
 print("<br><a href='goodslist.py'>回管理端</a>")
 print("</body></html>")

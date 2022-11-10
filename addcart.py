@@ -19,17 +19,17 @@ print("""
 form = cgi.FieldStorage()
 Pid=form.getvalue('id')
 number=form.getvalue('number')
-msgList = sp.check(Pid)
 if Pid == None or number == None:
     print("輸入格式錯誤")
+elif int(number) < 0:
+    print("數量不可為負")
 else:
-    for (num) in msgList:
-        if num != None:
-            if sp.addcart(Pid,number):
-                print(f"編號{Pid}商品已加入購物車!")       
-            else:
-                print("加入購物車失敗!")
+    if sp.check(Pid):
+        if sp.addcart(Pid,number):
+            print(f"編號{Pid}商品已加入購物車!")       
         else:
-            print("沒有這個商品")
+            print("加入購物車失敗!")
+    else:
+        print("沒有這個商品")
 print("<br><a href='Customer.py'>回客戶端</a>")
 print("</body></html>")

@@ -35,7 +35,7 @@ def delcart(Pid, number):
     return True
 
 def check(Pid):
-    sql="select Pid from shoppingcart where Pid = %s;"
+    sql="select Pid from shoppingcart where Pid = %s and Quantity>0;"
     cur.execute(sql,(Pid,))
     records = cur.fetchall()
     return records

@@ -24,24 +24,29 @@ if Pid is None:
     print("<br><a href='goodslist.py'>回管理端</a>")
     print("</body></html>")
 else:
-    print("<h2>原始資料</h2>")
-    for (Pid,Name,Description,Quantity,Price) in msgList:
-        print(f"<p>商品編號{Pid}: 商品名稱:{Name} 商品簡介:{Description} 庫存:{Quantity} 商品價格:{Price}</p>")
-    print("""
-    <div >
-    <fieldset>
-    <legend>商品修改表單</legend>
-    <form method="post" action="changegoods.py">
-    輸入ID<input type="text" name='Pid'><br>
-    輸入名稱<input type="text" name='name'><br>
-    輸入簡介<input type="text" name='des'><br>
-    輸入數量<input type="number" name='number'><br>
-    輸入價錢<input type="number" name='price'><br>
-    <input type="submit">
-    </form>
-    </fieldset>
-    </div>
-    <br><a href='goodslist.py'>回管理端</a>
-    </body>
-    </html>
-    """)
+    if sp.check(Pid):
+        print("<h2>原始資料</h2>")
+        for (Pid,Name,Description,Quantity,Price) in msgList:
+            print(f"<p>商品編號{Pid}: 商品名稱:{Name} 商品簡介:{Description} 庫存:{Quantity} 商品價格:{Price}</p>")
+        print("""
+        <div >
+        <fieldset>
+        <legend>商品修改表單</legend>
+        <form method="post" action="changegoods.py">
+        輸入ID<input type="text" name='Pid'><br>
+        輸入名稱<input type="text" name='name'><br>
+        輸入簡介<input type="text" name='des'><br>
+        輸入數量<input type="number" name='number'><br>
+        輸入價錢<input type="number" name='price'><br>
+        <input type="submit">
+        </form>
+        </fieldset>
+        </div>
+        <br><a href='goodslist.py'>回管理端</a>
+        </body>
+        </html>
+        """)
+    else:
+        print("沒有這個商品")
+        print("<br><a href='goodslist.py'>回管理端</a>")
+        print("</body></html>")

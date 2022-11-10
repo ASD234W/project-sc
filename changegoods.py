@@ -24,9 +24,13 @@ number = form.getvalue('number')
 price = form.getvalue('price')
 if Pid == None or name == None or price == None:
     print("錯誤的輸入")
-elif sp.changegoods(Pid,name,des,number,price):
-    print("修改商品成功!")
 else:
-    print("修改商品失敗!")
+    if sp.check(Pid):
+        if sp.changegoods(Pid,name,des,number,price):
+            print("修改商品成功!")
+        else:
+            print("修改商品失敗!")
+    else:
+        print("沒有這個商品")
 print("<br><a href='goodslist.py'>回管理端</a>")
 print("</body></html>")

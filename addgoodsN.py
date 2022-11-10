@@ -21,9 +21,13 @@ Pid=form.getvalue('id')
 number=form.getvalue('number')
 if Pid is None or number is None:
     print("錯誤的輸入")
-elif sp.addgoodsN(Pid,number):
-    print(f"編號{Pid}商品庫存已修改!")
 else:
-    print("修改庫存失敗!")
+    if sp.check(Pid):
+        if sp.addgoodsN(Pid,number):
+            print(f"編號{Pid}商品庫存已修改!")
+        else:
+            print("修改庫存失敗!")
+    else:
+        print("沒有這個商品")
 print("<br><a href='goodslist.py'>回管理端</a>")
 print("</body></html>")
