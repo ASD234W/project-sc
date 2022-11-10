@@ -20,13 +20,19 @@ form = cgi.FieldStorage()
 Pid=form.getvalue('id')
 number=form.getvalue('number')
 msgList=sp.listcart()
+msgList1=sp.check(Pid)
 if not msgList:
     print("目前尚未選購商品")
 elif Pid == None or number == None:
     print("輸入格式錯誤")
-elif sp.delcart(Pid,number):
-    print(f"編號{Pid}商品已移出購物車!")
 else:
-    print("移出購物車失敗!")
+    for(num) in msgList1:
+        if num != None:
+            if sp.delcart(Pid,number):
+                print(f"編號{Pid}商品已移出購物車!")    
+            else:
+                print("移出購物車失敗!")
+        else:
+            print("沒有這個商品")
 print("<br><a href='Customer.py'>回客戶端</a>")
 print("</body></html>")

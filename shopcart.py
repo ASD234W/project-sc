@@ -7,7 +7,7 @@ def getList():
     return records
 
 def addcart(Pid,number):
-    sql="INSERT INTO customercart(Pid, Name, Description, Price) select Pid,Name,Description,Price from shoppingcart where Pid = %s and Pid NOT IN (select Pid from customercart);"
+    sql="INSERT INTO customercart(Pid, Name, Description, Price) select Pid,Name,Description,Price from shoppingcart where Quantity>0 and Pid = %s and Pid NOT IN (select Pid from customercart);"
     cur.execute(sql,(Pid,))
     conn.commit()
     
@@ -15,7 +15,7 @@ def addcart(Pid,number):
     cur.execute(sql,(number,Pid))
     conn.commit()
      
-    sql = "update shoppingcart set Quantity = Quantity - %s where Pid = %s;"
+    sql = "update shoppingcart set Quantity = Quantity - %s where Pid = %s and Quantity>0;"
     cur.execute(sql,(number,Pid))
     conn.commit()
     return True
@@ -33,7 +33,13 @@ def delcart(Pid, number):
     cur.execute(sql)
     conn.commit()
     return True
-    
+
+def check(Pid):
+    sql="select Pid from shoppingcart where Pid = %s;"
+    cur.execute(sql,(Pid,))
+    records = cur.fetchall()
+    return records
+   
 def listcart():
     sql="select Pid, Name,Description, Quantity,Price from customercart where Quantity>0;"
     cur.execute(sql)
