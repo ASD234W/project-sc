@@ -34,6 +34,12 @@ def delcart(Pid, number):
     conn.commit()
     return True
 
+def checknum(Pid, number):
+    sql="select Pid from shoppingcart where Pid = %s and Quantity>%s;"
+    cur.execute(sql,(Pid,number))
+    records = cur.fetchall()
+    return records
+
 def check(Pid):
     sql="select Pid from shoppingcart where Pid = %s and Quantity>0;"
     cur.execute(sql,(Pid,))

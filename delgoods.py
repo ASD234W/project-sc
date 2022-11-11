@@ -20,6 +20,8 @@ form = cgi.FieldStorage()
 Pid=form.getvalue('id')
 if Pid == None:
     print("發生錯誤")
+elif not any(chr.isdigit() for chr in Pid):
+    print("編號輸入錯誤")
 else:
     if sp.check(Pid):
         if sp.delgoods(Pid):

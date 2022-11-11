@@ -22,8 +22,12 @@ name = form.getvalue('name')
 des = form.getvalue('des')
 number = form.getvalue('number')
 price = form.getvalue('price')
-if name is None or price is None:
+if name is None or des is None or number is None or price is None:
     print("錯誤的輸入")
+elif int(number) < 0:
+    print("數量不可為負")
+elif int(price) < 0:
+    print("價格不可為負")
 elif sp.addgoods(name,des,number,price):
     print("新增商品成功!")
 else:

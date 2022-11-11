@@ -26,6 +26,8 @@ elif Pid == None or number == None:
     print("輸入格式錯誤")
 elif int(number) < 0:
     print("數量不可為負")
+elif not any(chr.isdigit() for chr in Pid):
+    print("編號輸入錯誤")
 else:
     if sp.check(Pid):
         if sp.delcart(Pid,number):

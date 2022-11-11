@@ -28,6 +28,8 @@ elif int(number) < 0:
     print("數量不可為負")
 elif int(price) < 0:
     print("價格不可為負")
+elif not any(chr.isdigit() for chr in Pid):
+    print("編號輸入錯誤")
 else:
     if sp.check(Pid):
         if sp.changegoods(Pid,name,des,number,price):

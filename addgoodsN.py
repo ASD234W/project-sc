@@ -23,6 +23,8 @@ if Pid is None or number is None:
     print("錯誤的輸入")
 elif int(number) < 0:
     print("數量不可為負")
+elif not any(chr.isdigit() for chr in Pid):
+    print("編號輸入錯誤")
 else:
     if sp.check(Pid):
         if sp.addgoodsN(Pid,number):
