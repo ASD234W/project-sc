@@ -21,11 +21,13 @@ Pid=form.getvalue('id')
 number=form.getvalue('number')
 if Pid == None or number == None:
     print("輸入格式錯誤")
-elif int(number) < 0:
-    print("數量不可為負")
 elif not any(chr.isdigit() for chr in Pid):
     print("編號輸入錯誤")
-elif not sp.checknum(Pid,number):
+elif int(Pid) < 0:
+    print("編號輸入錯誤")
+elif int(number) < 0:
+    print("數量不可為負")
+elif sp.checknum(Pid,number):
     print("數量超出上限")
 else:
     if sp.check(Pid):

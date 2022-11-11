@@ -25,6 +25,8 @@ elif int(number) < 0:
     print("數量不可為負")
 elif not any(chr.isdigit() for chr in Pid):
     print("編號輸入錯誤")
+elif int(Pid) < 0:
+    print("編號輸入錯誤")
 else:
     if sp.check(Pid):
         if sp.addgoodsN(Pid,number):

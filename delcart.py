@@ -24,12 +24,14 @@ if not msgList:
     print("目前尚未選購商品")
 elif Pid == None or number == None:
     print("輸入格式錯誤")
-elif int(number) < 0:
-    print("數量不可為負")
 elif not any(chr.isdigit() for chr in Pid):
     print("編號輸入錯誤")
+elif int(Pid) < 0:
+    print("編號輸入錯誤")
+elif int(number) < 0:
+    print("數量不可為負")
 else:
-    if sp.check(Pid) and sp.checkC(Pid):
+    if sp.checkC(Pid):
         if sp.delcart(Pid,number):
             print(f"編號{Pid}商品已移出購物車!")    
         else:
