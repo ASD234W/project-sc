@@ -29,7 +29,7 @@ elif int(number) < 0:
 elif not any(chr.isdigit() for chr in Pid):
     print("編號輸入錯誤")
 else:
-    if sp.check(Pid):
+    if sp.check(Pid) and sp.checkC(Pid):
         if sp.delcart(Pid,number):
             print(f"編號{Pid}商品已移出購物車!")    
         else:

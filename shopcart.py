@@ -40,6 +40,12 @@ def checknum(Pid, number):
     records = cur.fetchall()
     return records
 
+def checkC(Pid):
+    sql="select Pid from customercart where Pid = %s and Quantity>0;"
+    cur.execute(sql,(Pid,))
+    records = cur.fetchall()
+    return records
+
 def check(Pid):
     sql="select Pid from shoppingcart where Pid = %s and Quantity>0;"
     cur.execute(sql,(Pid,))
