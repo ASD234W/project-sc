@@ -1,7 +1,7 @@
 from dbconfig import conn, cur
 
 def getList():
-    sql="select Pid, Name,Description, Quantity,Price from shoppingcart where Quantity>0;"
+    sql="select Pid, Name,Description, Quantity,Price from shoppingcart where Quantity>0  order by Price desc;"
     cur.execute(sql)
     records = cur.fetchall()
     return records
@@ -69,7 +69,7 @@ def SFinish():
     return record
 
 def goodslist():
-    sql="select Pid, Name,Description, Quantity,Price from shoppingcart;"
+    sql="select Pid, Name,Description, Quantity,Price from shoppingcart  order by Price desc;"
     cur.execute(sql)
     records = cur.fetchall()
     return records
